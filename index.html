@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tuli Promo – Evexia Wellness Center</title>
+
+<!-- Google tag (gtag.js) — replace G-XXXXXXXXXX with your actual GA4 Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+
+  function sendRegistrationEvent(data) {
+    gtag('event', 'circumcision_registration', {
+      guardian_name:   data.guardian,
+      patient_name:    data.patientName,
+      birthdate:       data.birthdate,
+      age:             data.age,
+      email:           data.email,
+      contact_number:  data.contact,
+      request_date:    data.preferredDate
+    });
+  }
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+  :root {
+    --primary-green:    #4CAF50;
+    --dark-green:       #3D8B40;
+    --accent-coral:     #FF6B6B;
+    --accent-teal:      #4ECDC4;
+    --light-bg:         #FAFAFA;
+    --white:            #FFFFFF;
+    --text-dark:        #2D3436;
+    --text-gray:        #636E72;
+    --shadow-sm:        0 2px 8px rgba(0,0,0,.08);
+    --shadow-md:        0 4px 16px rgba(0,0,0,.12);
+    --shadow-lg:        0 8px 24px rgba(0,0,0,.15);
+    --gradient-green:   linear-gradient(135deg, #4CAF50 0%, #3D8B40 100%);
+    --gradient-overlay: linear-gradient(135deg, rgba(76,175,80,.95) 0%, rgba(61,139,64,.95) 100%);
+
+    /* Derived */
+    --green-pale: #E8F5E9;
+    --border:     #C8E6C9;
+    --radius:     16px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--light-bg);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── HEADER ─────────────────────────────────────────────────────── */
+  header {
+    background: var(--white);
+    border-bottom: 3px solid var(--green-pale);
+    padding: 16px 24px;
+    display: flex; align-items: center; gap: 14px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .logo-icon {
+    width: 50px; height: 50px;
+    background: var(--gradient-green);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(76,175,80,.35);
+  }
+
+  .logo-text .brand {
+    font-family: 'Poppins', sans-serif;
+    font-size: 21px; font-weight: 700; color: var(--dark-green); line-height: 1.1;
+  }
+  .logo-text .sub {
+    font-size: 11px; color: var(--text-gray);
+    font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  /* ─── HERO ──────────────────────────────────────────────────────── */
+  .hero {
+    background: var(--gradient-green);
+    padding: 56px 24px 68px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23ffffff' fill-opacity='0.07'/%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+  }
+  /* top accent strip */
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--accent-teal), var(--accent-coral), var(--accent-teal));
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.18);
+    color: #fff;
+    font-size: 11px; font-weight: 800; letter-spacing: 2px;
+    padding: 6px 18px; border-radius: 99px;
+    border: 1.5px solid rgba(255,255,255,.35);
+    margin-bottom: 22px;
+    backdrop-filter: blur(4px);
+  }
+
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(40px, 9vw, 72px); font-weight: 900;
+    color: #fff; line-height: 1;
+    text-shadow: 0 4px 24px rgba(0,0,0,.18); margin-bottom: 6px;
+  }
+  .hero h1 span { color: var(--accent-teal); }
+
+  .hero-subtitle {
+    font-size: 15.5px; color: rgba(255,255,255,.9);
+    max-width: 480px; margin: 14px auto 0; line-height: 1.65;
+  }
+  .hero-subtitle strong { color: #fff; }
+
+  .hero-price-card {
+    display: inline-block;
+    background: var(--white);
+    border-radius: 22px;
+    padding: 22px 44px;
+    margin-top: 34px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .hero-price-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--gradient-green);
+    border-radius: 22px 22px 0 0;
+  }
+  .hero-price-card .label {
+    font-size: 11px; font-weight: 800; letter-spacing: 2px;
+    color: var(--primary-green); text-transform: uppercase;
+  }
+  .hero-price-card .price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 58px; font-weight: 900; color: var(--dark-green); line-height: 1.05;
+  }
+  .hero-price-card .valid { font-size: 12px; color: var(--text-gray); margin-top: 4px; }
+  .valid-badge {
+    display: inline-block;
+    background: var(--accent-coral); color: #fff;
+    font-size: 11px; font-weight: 800; letter-spacing: 1px;
+    padding: 4px 14px; border-radius: 99px; margin-top: 8px;
+  }
+
+  /* ─── SECTION ───────────────────────────────────────────────────── */
+  .section { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+
+  .section-label {
+    font-size: 11px; font-weight: 800; letter-spacing: 2px;
+    color: var(--primary-green); text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1.5px; background: var(--border); }
+
+  /* ─── INFO CARDS ─────────────────────────────────────────────────── */
+  .info-grid { display: grid; gap: 14px; margin-bottom: 14px; }
+
+  .info-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    padding: 20px 22px;
+    display: flex; gap: 16px; align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    animation: fadeUp .5s ease both;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .info-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+  .info-card .icon {
+    font-size: 24px; flex-shrink: 0;
+    width: 46px; height: 46px;
+    background: var(--green-pale);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .info-card h3 { font-size: 15px; font-weight: 800; color: var(--dark-green); margin-bottom: 5px; }
+  .info-card p, .info-card li { font-size: 13.5px; color: var(--text-gray); line-height: 1.65; }
+  .info-card ul { padding-left: 16px; }
+
+  /* ─── TEAL STEPS BANNER ──────────────────────────────────────────── */
+  .steps-banner {
+    background: linear-gradient(135deg, #4ECDC4 0%, #38b2ac 100%);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    color: #fff;
+    box-shadow: var(--shadow-md);
+    animation: fadeUp .5s .2s ease both;
+  }
+  .steps-banner h3 { font-size: 13px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 12px; opacity: .9; }
+  .steps-banner ol { padding-left: 18px; }
+  .steps-banner li { font-size: 13.5px; line-height: 1.75; }
+
+  /* ─── REMINDER BOX ───────────────────────────────────────────────── */
+  .reminder-box {
+    background: #FFF8E1;
+    border: 1.5px solid #FFE082;
+    border-radius: var(--radius);
+    padding: 18px 22px;
+  }
+  .reminder-box h3 { font-size: 14px; font-weight: 800; color: #B45309; margin-bottom: 8px; }
+  .reminder-box li { font-size: 13px; color: #78450C; line-height: 1.75; }
+
+  /* ─── FORM ───────────────────────────────────────────────────────── */
+  .form-section {
+    background: var(--white);
+    border-radius: 24px;
+    border: 2px solid var(--border);
+    padding: 32px 28px;
+    box-shadow: var(--shadow-md);
+    margin-top: 14px;
+  }
+  .form-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px; font-weight: 800; color: var(--dark-green); margin-bottom: 4px;
+  }
+  .form-subtitle { font-size: 13px; color: var(--text-gray); margin-bottom: 26px; }
+
+  .form-row { display: grid; gap: 14px; margin-bottom: 14px; }
+  .form-row.two { grid-template-columns: 1fr 1fr; }
+  @media(max-width: 480px){ .form-row.two { grid-template-columns: 1fr; } }
+
+  .field label {
+    display: block; font-size: 11px; font-weight: 800;
+    color: var(--dark-green); letter-spacing: .6px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .field input, .field select {
+    width: 100%; padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px; color: var(--text-dark);
+    background: var(--light-bg); outline: none;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+  }
+  .field input:focus, .field select:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(76,175,80,.15);
+    background: var(--white);
+  }
+  .field input.error, .field select.error { border-color: var(--accent-coral); }
+
+  .submit-btn {
+    width: 100%; margin-top: 22px; padding: 16px;
+    background: var(--gradient-green);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px; font-weight: 700;
+    border: none; border-radius: 12px;
+    cursor: pointer; letter-spacing: .5px;
+    box-shadow: 0 4px 18px rgba(76,175,80,.4);
+    transition: opacity .2s, transform .15s, box-shadow .2s;
+  }
+  .submit-btn:hover { opacity: .93; transform: translateY(-2px); box-shadow: 0 6px 22px rgba(76,175,80,.45); }
+  .submit-btn:active { transform: translateY(0); }
+
+  /* ─── LOADING OVERLAY ────────────────────────────────────────────── */
+  #loading-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 200;
+    background: var(--gradient-overlay);
+    flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 24px;
+  }
+  #loading-overlay.show { display: flex; }
+
+  .spinner-wrap { position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+  .pulse-ring {
+    position: absolute;
+    width: 90px; height: 90px;
+    border: 3px solid var(--accent-teal);
+    border-radius: 50%;
+    animation: pulse 1.5s ease-out infinite;
+    opacity: 0;
+  }
+  .spinner {
+    width: 56px; height: 56px;
+    border: 5px solid rgba(255,255,255,.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  #loading-msg { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  #loading-sub { font-size: 13px; color: rgba(255,255,255,.75); max-width: 280px; }
+
+  /* ─── TICKET SECTION ─────────────────────────────────────────────── */
+  #ticket-section { display: none; max-width: 700px; margin: 0 auto 60px; padding: 0 20px; }
+  #ticket-section.show { display: block; }
+
+  .ticket-heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px; font-weight: 800;
+    color: var(--dark-green); text-align: center; margin-bottom: 18px;
+  }
+
+  #ticket-canvas {
+    display: block; max-width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    margin: 0 auto 20px;
+    border: 2px solid var(--border);
+  }
+
+  .ticket-actions {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    justify-content: center; margin-bottom: 24px;
+  }
+  .ticket-btn {
+    padding: 13px 28px; border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; font-weight: 700;
+    cursor: pointer; border: none;
+    transition: opacity .2s, transform .15s;
+  }
+  .ticket-btn:hover { opacity: .88; transform: translateY(-1px); }
+  .ticket-btn.primary   { background: var(--gradient-green); color: #fff; box-shadow: var(--shadow-sm); }
+  .ticket-btn.secondary { background: var(--white); color: var(--dark-green); border: 2px solid var(--primary-green); }
+
+  /* ─── MODAL ──────────────────────────────────────────────────────── */
+  #modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: rgba(45,52,54,.6);
+    align-items: center; justify-content: center; padding: 24px;
+  }
+  #modal-overlay.show { display: flex; }
+
+  .modal-box {
+    background: var(--white);
+    border-radius: 22px;
+    padding: 36px 30px;
+    max-width: 360px; width: 100%;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    animation: popIn .3s ease;
+    border-top: 5px solid var(--accent-teal);
+  }
+  .modal-icon { font-size: 52px; margin-bottom: 14px; }
+  .modal-box h3 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 800; color: var(--dark-green); margin-bottom: 10px; }
+  .modal-box p  { font-size: 13.5px; color: var(--text-gray); line-height: 1.65; margin-bottom: 22px; }
+  .modal-close {
+    padding: 13px 32px;
+    background: var(--gradient-green);
+    color: #fff; border: none; border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────────────────────── */
+  footer {
+    background: var(--dark-green);
+    color: rgba(255,255,255,.75);
+    text-align: center; padding: 28px 24px; font-size: 13px;
+  }
+  footer strong { color: #fff; }
+  .footer-teal { color: var(--accent-teal); font-weight: 700; }
+
+  .divider { border: none; border-top: 2px dashed var(--border); margin: 14px 0 30px; }
+
+  /* ─── KEYFRAMES ──────────────────────────────────────────────────── */
+  @keyframes spin   { to { transform: rotate(360deg); } }
+  @keyframes pulse  { 0%{transform:scale(.8);opacity:.8} 100%{transform:scale(1.6);opacity:0} }
+  @keyframes popIn  { from{transform:scale(.85);opacity:0} to{transform:scale(1);opacity:1} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-icon">🌿</div>
+  <div class="logo-text">
+    <div class="brand">Evexia Wellness Center</div>
+    <div class="sub">Health · Care · Wellness</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✂️ &nbsp;TULI PROMO 2026</div>
+  <h1>TULI PROMO</h1>
+  <p class="hero-subtitle">
+    A quick and safe minor surgical procedure performed by a licensed medical professional,
+    <strong>led by Dr. Victor Escueta.</strong>
+  </p>
+  <div class="hero-price-card">
+    <div class="label">Circumcision Package</div>
+    <div class="price">PHP 1,800</div>
+    <div class="valid">Dorsal Slit Cut · Includes 1 Follow-Up Wound Dressing</div>
+    <div class="valid-badge">Valid until May 30, 2026</div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="section">
+
+  <div class="section-label">Package Details</div>
+  <div class="info-grid">
+    <div class="info-card" style="animation-delay:.05s">
+      <div class="icon">🏥</div>
+      <div>
+        <h3>What's Included</h3>
+        <ul>
+          <li>Dorsal Slit Cut Procedure Only</li>
+          <li>One (1) Follow-Up Wound Dressing</li>
+          <li><em>Prescribed medications are <strong>NOT</strong> included</em></li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-card" style="animation-delay:.1s">
+      <div class="icon">📅</div>
+      <div>
+        <h3>Operation Schedule</h3>
+        <p>Every <strong>Saturday only</strong> &nbsp;|&nbsp; April – May 2026<br/>
+        For inquiries, message us on our <strong>Facebook page</strong>.</p>
+      </div>
+    </div>
+    <div class="info-card" style="animation-delay:.15s">
+      <div class="icon">👨‍⚕️</div>
+      <div>
+        <h3>Pre-Procedure Reminders</h3>
+        <ul>
+          <li>Must be accompanied by a parent or legal guardian</li>
+          <li>Patient should take a bath before the procedure</li>
+          <li>Wear comfortable and loose clothing</li>
+          <li>Follow instructions of the medical staff</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="steps-banner">
+    <h3>📋 HOW REGISTRATION WORKS</h3>
+    <ol>
+      <li>Fill out the registration form below with the patient's details.</li>
+      <li>Submit and wait for your confirmation ticket to be generated.</li>
+      <li>Download or copy the ticket, then send it to our Facebook page.</li>
+      <li>Our team will confirm your schedule via Messenger or Email.</li>
+      <li>A medical professional will assess the patient before the procedure.</li>
+    </ol>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- FORM -->
+  <div class="form-section" id="registration-form">
+    <h2>✂️ Circumcision Registration</h2>
+    <p class="form-subtitle">All fields are required. Please double-check the details before submitting.</p>
+
+    <div class="form-row two">
+      <div class="field">
+        <label>Patient's Full Name</label>
+        <input type="text" id="patientName" placeholder="Enter Patient's Full Name"/>
+      </div>
+      <div class="field">
+        <label>Guardian / Parent Name</label>
+        <input type="text" id="guardian" placeholder="Enter Guardian/Parent Name"/>
+      </div>
+    </div>
+
+    <div class="form-row two">
+      <div class="field">
+        <label>Birthdate</label>
+        <input type="date" id="birthdate"/>
+      </div>
+      <div class="field">
+        <label>Age</label>
+        <input type="number" id="age" placeholder="" min="1" max="99"/>
+      </div>
+    </div>
+
+    <div class="form-row two">
+      <div class="field">
+        <label>Contact Number</label>
+        <input type="tel" id="contact" placeholder="09XX XXX XXXX"/>
+      </div>
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="@email.com"/>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label>Preferred Date — Saturdays Only | April – May 2026</label>
+        <select id="preferredDate">
+          <option value="">-- Select a Saturday --</option>
+          <option value="April 18, 2026">April 18, 2026 (Saturday)</option>
+          <option value="April 25, 2026">April 25, 2026 (Saturday)</option>
+          <option value="May 2, 2026">May 2, 2026 (Saturday)</option>
+          <option value="May 9, 2026">May 9, 2026 (Saturday)</option>
+          <option value="May 16, 2026">May 16, 2026 (Saturday)</option>
+          <option value="May 23, 2026">May 23, 2026 (Saturday)</option>
+          <option value="May 30, 2026">May 30, 2026 (Saturday)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="reminder-box">
+      <h3>📌 Before You Submit</h3>
+      <ul>
+        <li>This registration does <strong>not</strong> guarantee a slot — confirmation comes via Messenger or Email.</li>
+        <li>A medical professional will assess the patient before the procedure on the chosen date.</li>
+        <li>Medications prescribed by the doctor are <strong>not included</strong> in the ₱1,800 package.</li>
+      </ul>
+    </div>
+
+    <button class="submit-btn" onclick="submitForm()">
+      Register Now &amp; Generate My Ticket ✂️
+    </button>
+  </div>
+
+</div>
+
+<!-- LOADING -->
+<div id="loading-overlay">
+  <div class="spinner-wrap">
+    <div class="pulse-ring"></div>
+    <div class="spinner"></div>
+  </div>
+  <div id="loading-msg">Generating your confirmation ticket…</div>
+  <div id="loading-sub">Please do not close this page — your ticket is being prepared.</div>
+</div>
+
+<!-- TICKET -->
+<div id="ticket-section">
+  <div class="section">
+    <p class="ticket-heading">🎟️ Your Confirmation Ticket is Ready!</p>
+    <canvas id="ticket-canvas" width="600" height="390"></canvas>
+    <div class="ticket-actions">
+      <button class="ticket-btn primary"   onclick="downloadTicket()">⬇️ &nbsp;Download Ticket</button>
+      <button class="ticket-btn secondary" onclick="copyTicket()">📋 &nbsp;Copy Ticket Image</button>
+    </div>
+    <div class="reminder-box">
+      <h3>📣 What to Do Next</h3>
+      <ul>
+        <li>Download or copy your ticket above.</li>
+        <li>Message <strong>Evexia Wellness Center</strong> on Facebook and send your ticket image.</li>
+        <li>Wait for a confirmation reply before your scheduled Saturday.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-icon">✅</div>
+    <h3>Ticket Saved!</h3>
+    <p>
+      Please <strong>message Evexia Wellness Center</strong> on Facebook and send your ticket image for slot confirmation. Our team will reply via Messenger or Email.
+    </p>
+    <button class="modal-close" onclick="closeModal()">Got it, thanks!</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Evexia Wellness Center</strong><br/>
+  <span class="footer-teal">evexiawellnesscenter.ph</span>
+  &nbsp;·&nbsp; Follow us on Facebook &amp; Instagram
+  <br/><br/>
+  <small>© 2026 Evexia Wellness Center. All rights reserved.</small>
+</footer>
+
+<script>
+/* ── AUTO-CALCULATE AGE ──────────────────────────────────────────────── */
+document.getElementById('birthdate').addEventListener('change', function () {
+  const bd    = new Date(this.value);
+  const today = new Date();
+  let age     = today.getFullYear() - bd.getFullYear();
+  const m     = today.getMonth() - bd.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < bd.getDate())) age--;
+  if (age >= 0) document.getElementById('age').value = age;
+});
+
+/* ── LOADING MESSAGES ────────────────────────────────────────────────── */
+const msgs = [
+  'Generating your confirmation ticket…',
+  'Adding your details to the ticket…',
+  'Applying official Evexia branding…',
+  'Almost done — finishing up your ticket!'
+];
+
+/* ── FORM SUBMIT ─────────────────────────────────────────────────────── */
+function submitForm () {
+  const ids = ['patientName','guardian','birthdate','age','contact','email','preferredDate'];
+  let valid = true;
+
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+    else                  { el.classList.remove('error'); }
+  });
+
+  if (!valid) { alert('Please fill in all required fields before submitting.'); return; }
+
+  const data = {
+    patientName:   document.getElementById('patientName').value.trim(),
+    guardian:      document.getElementById('guardian').value.trim(),
+    birthdate:     document.getElementById('birthdate').value,
+    age:           document.getElementById('age').value,
+    email:         document.getElementById('email').value.trim(),
+    contact:       document.getElementById('contact').value.trim(),
+    preferredDate: document.getElementById('preferredDate').value
+  };
+
+  sendRegistrationEvent(data);
+
+  const overlay = document.getElementById('loading-overlay');
+  overlay.classList.add('show');
+
+  let i = 0;
+  const interval = setInterval(() => {
+    i = (i + 1) % msgs.length;
+    document.getElementById('loading-msg').textContent = msgs[i];
+  }, 900);
+
+  setTimeout(() => {
+    clearInterval(interval);
+    generateTicket(data);
+    overlay.classList.remove('show');
+    const ts = document.getElementById('ticket-section');
+    ts.classList.add('show');
+    ts.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 3600);
+}
+
+/* ── TICKET CANVAS ───────────────────────────────────────────────────── */
+function generateTicket (data) {
+  const canvas = document.getElementById('ticket-canvas');
+  const ctx    = canvas.getContext('2d');
+  const W = 600, H = 390;
+  canvas.width = W; canvas.height = H;
+
+  /* background */
+  ctx.fillStyle = '#FAFAFA';
+  ctx.fillRect(0, 0, W, H);
+
+  /* header gradient */
+  const hdr = ctx.createLinearGradient(0, 0, W, 0);
+  hdr.addColorStop(0, '#3D8B40');
+  hdr.addColorStop(1, '#4CAF50');
+  ctx.fillStyle = hdr;
+  roundRect(ctx, 0, 0, W, 112, 0);
+
+  /* teal top stripe */
+  ctx.fillStyle = '#4ECDC4';
+  ctx.fillRect(0, 0, W, 4);
+
+  /* coral accent under header */
+  ctx.fillStyle = 'rgba(255,107,107,.4)';
+  ctx.fillRect(0, 108, W, 4);
+
+  /* header texts */
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = 'bold 26px Poppins, sans-serif';
+  ctx.fillText('✂️  TULI PROMO 2026', 26, 48);
+
+  ctx.font = '13px Nunito, sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,.82)';
+  ctx.fillText('Evexia Wellness Center  ·  Circumcision Registration Ticket', 26, 72);
+
+  ctx.font = 'bold 12px Nunito, sans-serif';
+  ctx.fillStyle = '#A5F3C4';
+  ctx.fillText('₱1,800  ·  Dorsal Slit Procedure  ·  Valid until May 30, 2026', 26, 96);
+
+  /* ticket number */
+  const ticketNo = 'EWC-' + Date.now().toString().slice(-6);
+  ctx.font = 'bold 12px Nunito, sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,.7)';
+  ctx.textAlign = 'right';
+  ctx.fillText('#' + ticketNo, W - 20, 28);
+  ctx.textAlign = 'left';
+
+  /* dashed divider */
+  ctx.setLineDash([7, 5]);
+  ctx.strokeStyle = '#C8E6C9';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(20, 128); ctx.lineTo(W - 20, 128); ctx.stroke();
+  ctx.setLineDash([]);
+
+  /* data rows */
+  const rows = [
+    ['Patient Name',   data.patientName,   'Guardian',  data.guardian],
+    ['Birthdate',      data.birthdate,      'Age',       data.age + ' years old'],
+    ['Contact',        data.contact,        'Email',     data.email],
+    ['Preferred Date', data.preferredDate,  'Schedule',  'Saturday · April–May 2026'],
+  ];
+
+  let y = 150;
+  rows.forEach(([l1, v1, l2, v2]) => {
+    ctx.font = 'bold 9.5px Nunito, sans-serif';
+    ctx.fillStyle = '#4CAF50';
+    ctx.fillText(l1.toUpperCase(), 26, y);
+    ctx.font = '13.5px Nunito, sans-serif';
+    ctx.fillStyle = '#2D3436';
+    ctx.fillText(v1, 26, y + 17);
+
+    ctx.font = 'bold 9.5px Nunito, sans-serif';
+    ctx.fillStyle = '#4CAF50';
+    ctx.fillText(l2.toUpperCase(), W / 2 + 8, y);
+    ctx.font = '13.5px Nunito, sans-serif';
+    ctx.fillStyle = '#2D3436';
+    ctx.fillText(v2, W / 2 + 8, y + 17);
+
+    y += 46;
+  });
+
+  /* footer bar */
+  const ftr = ctx.createLinearGradient(0, 0, W, 0);
+  ftr.addColorStop(0, '#3D8B40');
+  ftr.addColorStop(1, '#4CAF50');
+  ctx.fillStyle = ftr;
+  roundRect(ctx, 0, H - 48, W, 48, 0);
+
+  /* teal left accent */
+  ctx.fillStyle = '#4ECDC4';
+  ctx.fillRect(0, H - 48, 5, 48);
+
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold 11.5px Nunito, sans-serif';
+  ctx.fillText('📣  Message Evexia Wellness Center on Facebook and send this ticket for confirmation.', 16, H - 18);
+
+  /* border */
+  ctx.strokeStyle = '#4CAF50';
+  ctx.lineWidth = 2.5;
+  roundRect(ctx, 2, 2, W - 4, H - 4, 16, true);
+}
+
+function roundRect (ctx, x, y, w, h, r, strokeOnly = false) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+  if (strokeOnly) ctx.stroke(); else ctx.fill();
+}
+
+/* ── DOWNLOAD ─────────────────────────────────────────────────────────── */
+function downloadTicket () {
+  const link    = document.createElement('a');
+  link.download = 'Evexia-Tuli-Ticket.png';
+  link.href     = document.getElementById('ticket-canvas').toDataURL('image/png');
+  link.click();
+  setTimeout(showModal, 600);
+}
+
+/* ── COPY ────────────────────────────────────────────────────────────── */
+async function copyTicket () {
+  try {
+    document.getElementById('ticket-canvas').toBlob(async blob => {
+      try {
+        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+        showModal();
+      } catch (e) { downloadTicket(); }
+    });
+  } catch (e) { downloadTicket(); }
+}
+
+/* ── MODAL ───────────────────────────────────────────────────────────── */
+function showModal  () { document.getElementById('modal-overlay').classList.add('show'); }
+function closeModal () { document.getElementById('modal-overlay').classList.remove('show'); }
+
+/* ── PREVENT CLOSE ───────────────────────────────────────────────────── */
+window.addEventListener('beforeunload', function (e) {
+  if (document.getElementById('ticket-section').classList.contains('show')) {
+    e.preventDefault();
+    e.returnValue = 'Your confirmation ticket is ready. Please download or copy it before leaving.';
+  }
+});
+</script>
+</body>
+</html>
