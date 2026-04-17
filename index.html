@@ -626,7 +626,6 @@ function submitForm () {
 
   if (!valid) { alert('Please fill in all required fields before submitting.'); return; }
 
-  /* email format check */
   const emailVal = document.getElementById('email').value.trim();
   if (!emailVal.includes('@') || !emailVal.includes('.')) {
     document.getElementById('email').classList.add('error');
@@ -634,7 +633,6 @@ function submitForm () {
     return;
   }
 
-  /* contact must be exactly 11 digits */
   const contactVal = document.getElementById('contact').value.trim();
   if (contactVal.length !== 11) {
     document.getElementById('contact').classList.add('error');
@@ -654,22 +652,14 @@ function submitForm () {
 
   sendRegistrationEvent(data);
 
-  /* ── SEND TO GOOGLE APPS SCRIPT ── */
+  /* ── SEND TO GOOGLE APPS SCRIPT (no-cors safe) ── */
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwE4BjSsTjWOPNvH2x9TQY7Yz9XRsubzZHQa53AsxHkAKoOYvBIy6yS_y2LCNc25FxeNA/exec';
-  if (APPS_SCRIPT_URL !== 'PASTE_YOUR_WEB_APP_URL_HERE') {
-    fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    .then(r => r.json())
-    .then(res => {
-      if (res.ticketNo) {
-        document.getElementById('ticket-no-display').textContent = res.ticketNo;
-      }
-    })
-    .catch(err => console.warn('Apps Script error:', err));
-  }
+  fetch(APPS_SCRIPT_URL, {
+    method:  'POST',
+    mode:    'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body:    JSON.stringify(data)
+  }).catch(err => console.warn('Apps Script fetch error:', err));
 
   const overlay = document.getElementById('loading-overlay');
   overlay.classList.add('show');
@@ -695,7 +685,7 @@ function generateTicket (data) {
   const canvas = document.getElementById('ticket-canvas');
   const ctx    = canvas.getContext('2d');
   const W = 600, H = 390;
-  const scale = 3; /* 3× for high resolution */
+  const scale = 3;
   canvas.width  = W * scale;
   canvas.height = H * scale;
   canvas.style.width  = W + 'px';
