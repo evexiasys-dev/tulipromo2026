@@ -654,6 +654,23 @@ function submitForm () {
 
   sendRegistrationEvent(data);
 
+  /* ── SEND TO GOOGLE APPS SCRIPT ── */
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwE4BjSsTjWOPNvH2x9TQY7Yz9XRsubzZHQa53AsxHkAKoOYvBIy6yS_y2LCNc25FxeNA/exec';
+  if (APPS_SCRIPT_URL !== 'PASTE_YOUR_WEB_APP_URL_HERE') {
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(res => {
+      if (res.ticketNo) {
+        document.getElementById('ticket-no-display').textContent = res.ticketNo;
+      }
+    })
+    .catch(err => console.warn('Apps Script error:', err));
+  }
+
   const overlay = document.getElementById('loading-overlay');
   overlay.classList.add('show');
 
